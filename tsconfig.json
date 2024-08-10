@@ -1,21 +1,47 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
+    "module": "NodeNext",
+    "target": "ESNext",
+    "incremental": true,
     "removeComments": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "strict": true,
+    "outDir": "./dist",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "declaration": false,
+    "importHelpers": false,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "isolatedModules": false,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "&/*": [
+        "./resources/*"
+      ]
+    },
+    "baseUrl": "."
+  },
+  "exclude": [
+    "node_modules",
+    "test",
+    "release",
+    "**/*spec.ts"
+  ],
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.jsx",
+    "src/**/*.tsx",
+    "tests/**/*.js",
+    "tests/**/*.ts",
+    "tests/**/*.jsx",
+    "tests/**/*.tsx",
+    "src/app.jts"
+  ]
 }
