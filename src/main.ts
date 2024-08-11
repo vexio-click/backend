@@ -110,17 +110,20 @@ async function start() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({
-      logger: configService.get<boolean>('APP_USE_LOGGER'),
+      logger:
+        configService.get<string>('APP_USE_LOGGER') == 'true'
+          ? true
+          : undefined,
       https: await getHttpsOptions(configService),
     }),
   );
 
   app.enableCors();
-  app.setGlobalPrefix('api');
 
+  app.setGlobalPrefix('api');
   app.register(fastifyStatic, {
     root: createDirIfNotExists(appUserFilesFolder),
-    prefix: '/file',
+    prefix: '/api/file',
     extensions: [
       'png',
       'apng',

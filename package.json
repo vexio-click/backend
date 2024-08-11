@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "release":"bun build --compile ./build/main.js --outfile release/server",
-    "start": "bun ./build/main.js",
+    "start": "bun build/main.js",
     "build": "webpack-cli build --node-env production",
     "watch": "webpack-cli --watch --node-env development",
     "dev": "cross-env UseNodemon=true webpack-cli --watch --node-env development",
